@@ -25,7 +25,19 @@ def waitlist_view(request):
             if created:
                 # Send confirmation email (no QR)
                 confirm_url = request.build_absolute_uri(f'/waitlist/confirm/{entry.token}/')
-                body = f"Hi {form.cleaned_data['name']}, You’re officially on the waiting list and we’re so glad to have you here! We’re putting the final touches on the course, and as soon as it’s ready, you’ll be the first to know. No need to keep checking — we’ll drop into your inbox the moment enrollment opens. Until then, if you have any questions or just want to say hi, we’re always happy to hear from you. Excited to share more soon,  Joseph Sudhip   Declutter Minds"
+                body = f"""
+Hi {form.cleaned_data['name']},
+
+You’re officially on the waiting list and we’re so glad to have you here!
+
+We’re putting the final touches on the course, and as soon as it’s ready, you’ll be the first to know. No need to keep checking — we’ll drop into your inbox the moment enrollment opens.
+
+Until then, if you have any questions or just want to say hi, we’re always happy to hear from you.
+
+Excited to share more soon,  
+Joseph Sudhip  
+Declutter Minds
+"""
                 email_msg = EmailMessage(
                     "You're In! We'll Keep You Posted ",
                     body,
