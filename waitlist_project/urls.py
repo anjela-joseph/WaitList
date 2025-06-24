@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('https://declutterminds-waitlist.onrender.com/waitlist/', include('waitlist.urls')),
+    path('waitlist/', include('waitlist.urls')),
     path('', lambda request: redirect('waitlist/')),
 ]
 if settings.DEBUG:
