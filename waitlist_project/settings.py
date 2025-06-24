@@ -79,10 +79,10 @@ import os
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'waitlistdb',
+    'NAME': 'waitlistdb_wpvp',
     'USER': 'waitlistdb_wpvp_user',
     'PASSWORD': 'zEoZJ1546sYKHfoa6hAwliih7zmRxDbU',
-    'HOST': 'dpg-d1d6n4mmcj7s73fgnaig-a',
+    'HOST': 'dpg-d1d6n4mmcj7s73fgnaig-a.oregon-postgres.render.com',
     'PORT': '5432',
     }
 }
