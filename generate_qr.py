@@ -1,7 +1,7 @@
 import qrcode
 
 # Change this to your deployed domain once live
-url = "http://localhost:8000/waitlist/"  # or https://yourdomain.com/waitlist/
+url = "https://declutterminds-waitlist.onrender.com/waitlist/"  # or https://yourdomain.com/waitlist/
 
 qr = qrcode.make(url)
 qr.save("waitlist_qr.png")

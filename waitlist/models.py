@@ -8,12 +8,12 @@ class WaitlistEntry(models.Model):
         ('executive', 'Executive'),
     ]
 
-    name = models.CharField(max_length=100,default='Unknown')
-    contact = models.CharField(max_length=15,default='N/A')
+    name = models.CharField(max_length=100)
+    contact = models.CharField(max_length=15)
     email = models.EmailField(unique=True)
     course = models.CharField(max_length=20, choices=COURSE_CHOICES,default='student')
     token = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     joined_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.email
+        return self.name

@@ -77,9 +77,14 @@ WSGI_APPLICATION = 'waitlist_project.wsgi.application'
 import dj_database_url
 import os
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv("DATABASE_URL")
-    )
+    'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'waitlistdb',
+    'USER': 'waitlistdb_wpvp_user',
+    'PASSWORD': 'zEoZJ1546sYKHfoa6hAwliih7zmRxDbU',
+    'HOST': 'dpg-d1d6n4mmcj7s73fgnaig-a',
+    'PORT': '5432',
+    }
 }
 
 
