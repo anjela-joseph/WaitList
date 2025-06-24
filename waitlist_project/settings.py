@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'waitlist_main.urls'
+ROOT_URLCONF = 'waitlist_project.urls'
 
 TEMPLATES = [
     {
@@ -67,21 +67,18 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'waitlist_main.wsgi.application'
+WSGI_APPLICATION = 'waitlist_project.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+import dj_database_url
+import os
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'waitlist_db',
-        'USER':'postgres',
-        'PASSWORD': 'Anjela@216',
-        'HOST': 'localhost',
-        'PORT': '5432',
-}
+    'default': dj_database_url.config(
+        default=os.getenv("DATABASE_URL")
+    )
 }
 
 
@@ -119,7 +116,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-import os
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "waitlist/static")]
 
 
