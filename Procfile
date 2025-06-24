@@ -1,1 +1,1 @@
-web: gunicorn waitlist_main.wsgi:application
+web: gunicorn waitlist_project.wsgi:application
