@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
 ]
 
 ROOT_URLCONF = 'waitlist_project.urls'
@@ -116,10 +117,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "waitlist/static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "waitlist", "static")]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
-STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -132,5 +134,3 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'joseph@declutterminds.ca'
 EMAIL_HOST_PASSWORD = 'uiiw iorf wusp ptde'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
-STATIC_ROOT = BASE_DIR / "staticfiles"
