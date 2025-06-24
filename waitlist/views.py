@@ -48,3 +48,6 @@ def waitlist_view(request):
         form = WaitlistForm()
 
     return render(request, 'waitlist/waitlist_form.html', {'form': form, 'message': message})
+def confirm_view(request, token):
+    entry = get_object_or_404(WaitlistEntry, token=token)
+    return render(request, 'waitlist/confirmation.html', {'entry': entry})
